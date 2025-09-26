@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/tally-counter/manifest.json">
+	<link rel="icon" href="/tally-counter/favicon.ico" type="image/x-icon">
+    <title>Tally Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="counter-container">
+        <button id="reset">Reset</button>
+        <h1>Tally Counter</h1>
+        <div id="counter">0</div>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+    </div>
+    <script src="app.js"></script>
+	<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/tally-counter/service-worker.js')
+        .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+            console.log('Service Worker registration failed:', error);
+        });
+    }
+</script>
+
+</body>
+</html>
+
+
+
